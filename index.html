@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mert Metin · Unity & 3D Developer</title>
+<meta name="description" content="Portfolio von Mert Metin: Unity- und 3D-Entwickler (C#) für Produktkonfiguratoren, AR-Anwendungen und Spiele.">
+<!-- Self-contained page: system fonts and local images only, so no visitor data goes to third parties. -->
+<style>
+:root {
+  --bg: #f6f4ef;
+  --surface: #ffffff;
+  --ink: #1b1d22;
+  --muted: #5c6068;
+  --line: #dcd8cf;
+  --accent: #b4431f;
+  --accent-soft: #f6e4dc;
+  --font: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15161a; --surface: #1e2026; --ink: #ecebe7; --muted: #a3a6ad; --line: #32353d;
+    --accent: #f08a62; --accent-soft: #3a251d;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 var(--font); }
+/* Language switch: only the active language is shown. */
+html[lang="de"] [lang="en"], html[lang="en"] [lang="de"] { display: none; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; font-size: 14px; }
+.topbar nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.topbar nav a { color: var(--muted); text-decoration: none; }
+.topbar nav a:hover { color: var(--ink); }
+.lang { font: 600 13px var(--mono); background: none; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 5px 10px; cursor: pointer; }
+.hero { padding: 56px 0 64px; border-bottom: 1px solid var(--line); }
+.eyebrow { font: 500 13px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
+h1 { font-size: clamp(38px, 7vw, 68px); line-height: 1.02; letter-spacing: -0.03em; margin: 0 0 22px; font-weight: 700; text-wrap: balance; }
+.lead { font-size: clamp(18px, 2.2vw, 22px); max-width: 60ch; margin: 0 0 28px; color: var(--muted); }
+.lead strong { color: var(--ink); font-weight: 600; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-block; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 8px; text-decoration: none; border: 1px solid var(--ink); color: var(--ink); }
+.btn.primary { background: var(--ink); color: var(--bg); }
+section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+h2 { font-size: 13px; font-family: var(--mono); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 28px; }
+.project { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 32px; align-items: start; padding: 28px 0; border-top: 1px solid var(--line); }
+.project:first-of-type { border-top: 0; padding-top: 0; }
+.project.text-only { grid-template-columns: minmax(0, 1fr); }
+.shot { position: relative; display: block; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); aspect-ratio: 16 / 9; }
+.shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shot .play { position: absolute; left: 14px; bottom: 14px; font: 600 13px var(--font); background: var(--ink); color: var(--bg); padding: 6px 12px; border-radius: 999px; }
+h3 { font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; letter-spacing: -0.015em; margin: 0 0 6px; }
+.context { font: 13px var(--mono); color: var(--muted); margin: 0 0 14px; }
+.project p { margin: 0 0 12px; max-width: 62ch; }
+.project ul { margin: 0 0 14px; padding-left: 20px; max-width: 62ch; }
+.project li { margin-bottom: 4px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.tag { font: 12px var(--mono); padding: 3px 9px; border-radius: 5px; background: var(--accent-soft); color: var(--accent); }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; border-top: 1px solid var(--line); padding-top: 28px; }
+.pair .project { border-top: 0; padding: 0; }
+.note { font-size: 14px; color: var(--muted); max-width: 70ch; margin: 24px 0 0; }
+.cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+dl { margin: 0; display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 10px 18px; font-size: 16px; }
+dt { font: 13px var(--mono); color: var(--muted); padding-top: 3px; }
+dd { margin: 0; }
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+.timeline time { display: block; font: 13px var(--mono); color: var(--muted); }
+.timeline strong { font-weight: 600; }
+footer { padding: 40px 0 64px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+@media (max-width: 760px) {
+  .wrap { padding: 0 16px; }
+  .project, .pair, .cols { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  dl { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  dd { margin-bottom: 10px; }
+  .topbar nav { gap: 14px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <nav aria-label="Navigation">
+      <a href="#projects"><span lang="de">Projekte</span><span lang="en">Projects</span></a>
+      <a href="#skills"><span lang="de">Kenntnisse</span><span lang="en">Skills</span></a>
+      <a href="#about"><span lang="de">Werdegang</span><span lang="en">Background</span></a>
+    </nav>
+    <button class="lang" id="lang-toggle" type="button" aria-label="Switch language">EN</button>
+  </div>
+
+  <header class="hero">
+    <p class="eyebrow">Mert Metin · Leverkusen</p>
+    <h1>
+      <span lang="de">Unity- und 3D-Entwickler für Konfiguratoren, AR und Spiele</span>
+      <span lang="en">Unity and 3D developer for configurators, AR and games</span>
+    </h1>
+    <p class="lead">
+      <span lang="de">Seit <strong>über acht Jahren</strong> entwickle ich interaktive 3D-Anwendungen mit <strong>C#, Unity und Three.js</strong>: Produktkonfiguratoren, AR-Apps und Spiele für Mobile, Web und Desktop.</span>
+      <span lang="en">For <strong>more than eight years</strong> I have been building interactive 3D applications with <strong>C#, Unity and Three.js</strong>: product configurators, AR apps and games for mobile, web and desktop.</span>
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#projects"><span lang="de">Projekte ansehen</span><span lang="en">See projects</span></a>
+      <a class="btn" href="https://www.linkedin.com/in/mertmetin" rel="noopener">LinkedIn</a>
+    </div>
+  </header>
+
+  <section id="projects">
+    <h2><span lang="de">Ausgewählte Projekte</span><span lang="en">Selected projects</span></h2>
+
+    <article class="project">
+      <a class="shot" href="https://www.youtube.com/watch?v=L7McHHe0Y5o" rel="noopener">
+        <img src="Images/schillig-web-configurator.jpg" alt="W.Schillig 3D Web Configurator" loading="lazy" width="1280" height="720">
+        <span class="play">▶ Video (YouTube)</span>
+      </a>
+      <div>
+        <h3><span lang="de">W.Schillig 3D-Web-Konfigurator mit AR</span><span lang="en">W.Schillig 3D web configurator with AR</span></h3>
+        <p class="context">TD Yazılım / Tablet Dekor · <span lang="de">Teamprojekt</span><span lang="en">team project</span></p>
+        <p>
+          <span lang="de">Polstermöbel im Browser in 3D konfigurieren und anschließend per Augmented Reality im eigenen Raum ansehen, auf iOS und Android.</span>
+          <span lang="en">Configure upholstered furniture in 3D in the browser, then view the result in your own room with augmented reality on iOS and Android.</span>
+        </p>
+        <div class="tags"><span class="tag">Three.js</span><span class="tag">JavaScript</span><span class="tag">Web-AR</span><span class="tag">iOS · Android</span></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <a class="shot" href="https://www.youtube.com/watch?v=6oKJh2fJWJs" rel="noopener">
+        <img src="Images/tablet-dekor-app.jpg" alt="Tablet Dekor 3D Furniture Configurator" loading="lazy" width="1280" height="720">
+        <span class="play">▶ Video (YouTube)</span>
+      </a>
+      <div>
+        <h3>Tablet Dekor</h3>
+        <p class="context">TD Yazılım · <span lang="de">Teamprojekt</span><span lang="en">team project</span> · Deutscher Exzellenz-Preis 2020</p>
+        <p>
+          <span lang="de">Möbelkonfigurations-App für Handel und Hersteller, ausgezeichnet mit dem Deutschen Exzellenz-Preis 2020. Im Einsatz unter anderem bei der Willi Schillig Polstermöbel GmbH und der Zorlu Holding.</span>
+          <span lang="en">Furniture configuration app for retailers and manufacturers, winner of the German Excellence Award 2020. Used by Willi Schillig Polstermöbel and Zorlu Holding, among others.</span>
+        </p>
+        <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">AR</span><span class="tag">Mobile · Desktop</span></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <a class="shot" href="https://www.youtube.com/watch?v=-lhIsrg4_gM" rel="noopener">
+        <img src="Images/tablet-dekor-web.jpg" alt="Tablet Dekor 3D Web Configurator" loading="lazy" width="1280" height="720">
+        <span class="play">▶ Video (YouTube)</span>
+      </a>
+      <div>
+        <h3>Tablet Dekor Web</h3>
+        <p class="context">TD Yazılım · <span lang="de">Teamprojekt</span><span lang="en">team project</span></p>
+        <p>
+          <span lang="de">Der Konfigurator als Webanwendung: 3D-Möbelkonfiguration direkt im Browser, umgesetzt mit JavaScript und Three.js.</span>
+          <span lang="en">The configurator as a web application: 3D furniture configuration directly in the browser, built with JavaScript and Three.js.</span>
+        </p>
+        <div class="tags"><span class="tag">Three.js</span><span class="tag">JavaScript</span><span class="tag">WebGL</span></div>
+      </div>
+    </article>
+
+    <!-- TODO (Mert): add a screenshot here if the client agrees; the client name stays out on purpose. -->
+    <article class="project text-only">
+      <div>
+        <h3><span lang="de">Produktkonfigurator für modulare Sofas</span><span lang="en">Product configurator for modular sofas</span></h3>
+        <p class="context"><span lang="de">Freelance · seit 2025 · alleinige Verantwortung für den Code</span><span lang="en">Freelance · since 2025 · sole owner of the codebase</span></p>
+        <p>
+          <span lang="de">Konfigurator auf Basis von Unity 6. Die 3D-Modelle und Materialien liefert ein 3D-Artist, Architektur und Code stammen von mir.</span>
+          <span lang="en">Configurator built on Unity 6. A 3D artist supplies models and materials; architecture and code are mine.</span>
+        </p>
+        <ul lang="de">
+          <li>Maße ändern sich stufenlos über Blendshapes; Stoff, Oberfläche und Keder sind frei wählbar.</li>
+          <li>Der Produktkatalog wird über eine REST-API aus dem Backend aufgebaut.</li>
+          <li>Stofftexturen werden heruntergeladen und gecacht, einzeln oder gesammelt.</li>
+          <li>Eine automatisierte Render-Pipeline mit Blender Cycles erzeugt die Produktbilder (GLB-Export mit Manifest).</li>
+          <li>Echtzeit-Darstellung mit linearem Farbraum, HDRI-Umgebungslicht, Kontaktschatten und Ambient Occlusion.</li>
+        </ul>
+        <ul lang="en">
+          <li>Dimensions change continuously through blend shapes; fabric, finish and welting are freely selectable.</li>
+          <li>The product catalogue is built from the backend through a REST API.</li>
+          <li>Fabric textures are downloaded and cached, one by one or in bulk.</li>
+          <li>An automated render pipeline with Blender Cycles produces the product images (GLB export with manifest).</li>
+          <li>Real-time look with linear colour space, HDRI ambient light, contact shadows and ambient occlusion.</li>
+        </ul>
+        <div class="tags"><span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">REST API</span><span class="tag">Blender Cycles</span><span class="tag">Azure DevOps</span></div>
+      </div>
+    </article>
+
+    <div class="pair">
+      <article class="project text-only">
+        <div>
+          <h3><span lang="de">AR-Anwendungen</span><span lang="en">AR applications</span></h3>
+          <p class="context">TD Yazılım · <span lang="de">und eigenes Projekt</span><span lang="en">and a personal project</span></p>
+          <ul lang="de">
+            <li><strong>Web-AR:</strong> Produkte sofort als 3D-Modell im Raum, auf iOS und Android.</li>
+            <li><strong>Taç Çek Canlandır:</strong> AR-App, die lizenzierte Disney-Figuren auf Produkten zum Leben erweckt.</li>
+            <li><strong>ArtCiz4d</strong> (eigenes Projekt): AR-Malbuch, in dem ausgemalte Figuren als 3D-Animation erscheinen.</li>
+          </ul>
+          <ul lang="en">
+            <li><strong>Web-AR:</strong> products placed in the room as 3D models instantly, on iOS and Android.</li>
+            <li><strong>Taç Çek Canlandır:</strong> AR app that brings licensed Disney characters on products to life.</li>
+            <li><strong>ArtCiz4d</strong> (personal project): AR colouring book in which coloured-in characters appear as 3D animations.</li>
+          </ul>
+          <div class="tags"><span class="tag">Unity</span><span class="tag">ARKit</span><span class="tag">ARCore</span><span class="tag">Vuforia</span></div>
+        </div>
+      </article>
+
+      <article class="project text-only">
+        <div>
+          <h3><span lang="de">Spiele</span><span lang="en">Games</span></h3>
+          <p class="context">TD Yazılım · Yıldız Technical University</p>
+          <ul lang="de">
+            <li><strong>Scootour Istanbul:</strong> Endless Runner durch das historische Istanbul, der auf den Klimawandel aufmerksam macht.</li>
+            <li><strong>Multiplayer-Sandbox</strong> (Studienprojekt): prozedural generierte Voxel-Welt mit Unity und C#.</li>
+          </ul>
+          <ul lang="en">
+            <li><strong>Scootour Istanbul:</strong> endless runner through historic Istanbul that raises awareness of climate change.</li>
+            <li><strong>Multiplayer sandbox</strong> (university project): procedurally generated voxel world with Unity and C#.</li>
+          </ul>
+          <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Mobile</span></div>
+        </div>
+      </article>
+    </div>
+
+    <p class="note">
+      <span lang="de">Weitere Projekte bei TD Yazılım: Interior Design Studio (3D-Produktpräsentation für Mobile, Web und Desktop), Generic Sofa Creator (parametrisches Design-Tool für Möbelhersteller), VRay-Integration in Unity. Die Videos stammen vom Kanal des Unternehmens und zeigen Teamarbeit, an der ich als Entwickler beteiligt war.</span>
+      <span lang="en">Further projects at TD Yazılım: Interior Design Studio (3D product presentation for mobile, web and desktop), Generic Sofa Creator (parametric design tool for furniture makers), VRay integration into Unity. The videos come from the company's channel and show team work I contributed to as a developer.</span>
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2><span lang="de">Kenntnisse</span><span lang="en">Skills</span></h2>
+    <dl>
+      <dt><span lang="de">3D und Echtzeit</span><span lang="en">3D and real time</span></dt>
+      <dd>Unity, Three.js (<span lang="de">über 5 Jahre</span><span lang="en">5+ years</span>), Babylon.js, ARKit, ARCore, Vuforia</dd>
+      <dt><span lang="de">Sprachen</span><span lang="en">Languages</span></dt>
+      <dd>C#, JavaScript, HTML/CSS, Java, SQL</dd>
+      <dt>Frameworks</dt>
+      <dd>.NET, .NET Standard, ASP.NET</dd>
+      <dt><span lang="de">Werkzeuge</span><span lang="en">Tools</span></dt>
+      <dd>Git, Azure DevOps, Webpack, <span lang="de">KI-gestützte Entwicklungswerkzeuge</span><span lang="en">AI-assisted development tools</span></dd>
+      <dt><span lang="de">Plattformen</span><span lang="en">Platforms</span></dt>
+      <dd>iOS, Android, Web, Desktop</dd>
+      <dt><span lang="de">Gesprochen</span><span lang="en">Spoken</span></dt>
+      <dd><span lang="de">Deutsch (C1), Englisch (C1, IELTS), Türkisch (Muttersprache)</span><span lang="en">German (C1), English (C1, IELTS), Turkish (native)</span></dd>
+    </dl>
+  </section>
+
+  <section id="about">
+    <h2><span lang="de">Werdegang</span><span lang="en">Background</span></h2>
+    <ul class="timeline">
+      <li><time><span lang="de">2025 – heute</span><span lang="en">2025 – present</span></time><strong>Freelance Unity Developer</strong> · <span lang="de">Produktkonfigurator für modulare Möbel</span><span lang="en">product configurator for modular furniture</span></li>
+      <li><time>06/2024 – 05/2025</time><strong>Senior Software Developer</strong> · Smart3D GmbH, Frechen</li>
+      <li><time>04/2016 – 02/2024</time><strong>Senior Software Developer</strong> · TD Yazılım, Istanbul</li>
+      <li><time>2011 – 2017</time><strong>B.Sc. <span lang="de">Informatik</span><span lang="en">Computer Science</span></strong> · Yıldız Technical University, Istanbul</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>© Mert Metin</span>
+    <span><a href="https://www.linkedin.com/in/mertmetin" rel="noopener">linkedin.com/in/mertmetin</a></span>
+  </footer>
+</div>
+
+<script>
+// Language toggle: German by default, "?lang=en" or the button switches to English.
+(function () {
+  var root = document.documentElement;
+  var button = document.getElementById("lang-toggle");
+  function apply(lang) {
+    root.lang = lang;
+    button.textContent = lang === "de" ? "EN" : "DE";
+  }
+  var requested = new URLSearchParams(location.search).get("lang");
+  apply(requested === "en" ? "en" : "de");
+  button.addEventListener("click", function () { apply(root.lang === "de" ? "en" : "de"); });
+})();
+</script>
+</body>
+</html>
