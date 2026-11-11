@@ -60,6 +60,9 @@ h3 { font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; letter-spacing: -0.0
 .project li { margin-bottom: 4px; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .tag { font: 12px var(--mono); padding: 3px 9px; border-radius: 5px; background: var(--accent-soft); color: var(--accent); }
+/* Portrait phone screenshots under a project, full row width. */
+.gallery { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0; }
+.gallery img { width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; display: block; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); }
 .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; border-top: 1px solid var(--line); padding-top: 28px; }
 .pair .project { border-top: 0; padding: 0; }
 .note { font-size: 14px; color: var(--muted); max-width: 70ch; margin: 24px 0 0; }
@@ -74,6 +77,7 @@ footer { padding: 40px 0 64px; font-size: 14px; color: var(--muted); display: fl
 @media (max-width: 760px) {
   .wrap { padding: 0 16px; }
   .project, .pair, .cols { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   dl { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   dd { margin-bottom: 10px; }
   .topbar nav { gap: 14px; }
@@ -186,6 +190,40 @@ footer { padding: 40px 0 64px; font-size: 14px; color: var(--muted); display: fl
       </div>
     </article>
 
+    <article class="project">
+      <div class="shot">
+        <img src="Images/scootour-istanbul-cover.jpg" alt="Scootour Istanbul gameplay: riding a scooter down İstiklal Avenue past the historic tram" loading="lazy" width="1280" height="720">
+      </div>
+      <div>
+        <h3>Scootour Istanbul</h3>
+        <p class="context">TD Yazılım · <span lang="de">Mobile-Spiel</span><span lang="en">mobile game</span></p>
+        <p>
+          <span lang="de">Endless Runner durch das historische Istanbul: Mit dem Roller geht es über die İstiklal-Straße, vorbei an Orten wie Akbank Sanat und Demirören. Man weicht der historischen Straßenbahn aus und sammelt Plastikflaschen ein. Das Spiel will auf Klimawandel und Recycling aufmerksam machen.</span>
+          <span lang="en">Endless runner through historic Istanbul: ride a scooter down İstiklal Avenue past places like Akbank Sanat and Demirören, dodge the historic tram and collect plastic bottles. The game sets out to raise awareness of climate change and recycling.</span>
+        </p>
+        <ul lang="de">
+          <li>Anmeldung über Google Play Games und Sign in with Apple, Spielerdaten in Firebase (Authentication, Realtime Database).</li>
+          <li>Missionen, Abzeichen und Shop; Werbung über AdMob.</li>
+          <li>Curved-World-Shader und gebackene Lightmaps.</li>
+          <li>2026 auf Unity 6 migriert, Firebase, AdMob und Play Games aktualisiert; der Android-Build erfüllt die 16-KB-Page-Size-Vorgabe von Google Play.</li>
+        </ul>
+        <ul lang="en">
+          <li>Sign-in with Google Play Games and Sign in with Apple, player data in Firebase (Authentication, Realtime Database).</li>
+          <li>Missions, badges and a shop; ads through AdMob.</li>
+          <li>Curved-world shader and baked lightmaps.</li>
+          <li>Migrated to Unity 6 in 2026 with updated Firebase, AdMob and Play Games SDKs; the Android build meets Google Play's 16 KB page size requirement.</li>
+        </ul>
+        <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Firebase</span><span class="tag">AdMob</span><span class="tag">iOS · Android</span></div>
+      </div>
+      <!-- Screenshots: replace the files in Images/ to update; keep the names or change them here. -->
+      <div class="gallery">
+        <img src="Images/scootour-istanbul-01.jpg" alt="Scootour Istanbul main menu" loading="lazy" width="540" height="960">
+        <img src="Images/scootour-istanbul-02.jpg" alt="Passing Akbank Sanat on İstiklal Avenue" loading="lazy" width="540" height="960">
+        <img src="Images/scootour-istanbul-03.jpg" alt="Passing the Demirören building" loading="lazy" width="540" height="960">
+        <img src="Images/scootour-istanbul-04.jpg" alt="The historic tram coming down the street" loading="lazy" width="540" height="960">
+      </div>
+    </article>
+
     <div class="pair">
       <article class="project text-only">
         <div>
@@ -207,17 +245,13 @@ footer { padding: 40px 0 64px; font-size: 14px; color: var(--muted); display: fl
 
       <article class="project text-only">
         <div>
-          <h3><span lang="de">Spiele</span><span lang="en">Games</span></h3>
-          <p class="context">TD Yazılım · Yıldız Technical University</p>
-          <ul lang="de">
-            <li><strong>Scootour Istanbul:</strong> Endless Runner durch das historische Istanbul, der auf den Klimawandel aufmerksam macht.</li>
-            <li><strong>Multiplayer-Sandbox</strong> (Studienprojekt): prozedural generierte Voxel-Welt mit Unity und C#.</li>
-          </ul>
-          <ul lang="en">
-            <li><strong>Scootour Istanbul:</strong> endless runner through historic Istanbul that raises awareness of climate change.</li>
-            <li><strong>Multiplayer sandbox</strong> (university project): procedurally generated voxel world with Unity and C#.</li>
-          </ul>
-          <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Mobile</span></div>
+          <h3><span lang="de">Multiplayer-Sandbox</span><span lang="en">Multiplayer sandbox</span></h3>
+          <p class="context">Yıldız Technical University · <span lang="de">Studienprojekt</span><span lang="en">university project</span></p>
+          <p>
+            <span lang="de">Prozedural generierte Voxel-Welt für mehrere Spieler, umgesetzt mit Unity und C#.</span>
+            <span lang="en">Procedurally generated voxel world for multiple players, built with Unity and C#.</span>
+          </p>
+          <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span></div>
         </div>
       </article>
     </div>
