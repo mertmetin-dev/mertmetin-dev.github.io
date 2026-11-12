@@ -52,6 +52,8 @@ h2 { font-size: 13px; font-family: var(--mono); font-weight: 500; letter-spacing
 .project.text-only { grid-template-columns: minmax(0, 1fr); }
 .shot { position: relative; display: block; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); aspect-ratio: 16 / 9; }
 .shot img, .shot video { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Two video thumbnails side by side in one project card. */
+.shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .shot .play { position: absolute; left: 14px; bottom: 14px; font: 600 13px var(--font); background: var(--ink); color: var(--bg); padding: 6px 12px; border-radius: 999px; }
 h3 { font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; letter-spacing: -0.015em; margin: 0 0 6px; }
 .context { font: 13px var(--mono); color: var(--muted); margin: 0 0 14px; }
@@ -115,54 +117,6 @@ footer { padding: 40px 0 64px; font-size: 14px; color: var(--muted); display: fl
   <section id="projects">
     <h2><span lang="de">Ausgewählte Projekte</span><span lang="en">Selected projects</span></h2>
 
-    <article class="project">
-      <a class="shot" href="https://www.youtube.com/watch?v=L7McHHe0Y5o" rel="noopener">
-        <img src="Images/schillig-web-configurator.jpg" alt="W.Schillig 3D Web Configurator" loading="lazy" width="1280" height="720">
-        <span class="play">▶ Video (YouTube)</span>
-      </a>
-      <div>
-        <h3><span lang="de">W.Schillig 3D-Web-Konfigurator mit AR</span><span lang="en">W.Schillig 3D web configurator with AR</span></h3>
-        <p class="context">TD Yazılım / Tablet Dekor · <span lang="de">Teamprojekt</span><span lang="en">team project</span></p>
-        <p>
-          <span lang="de">Polstermöbel im Browser in 3D konfigurieren und anschließend per Augmented Reality im eigenen Raum ansehen, auf iOS und Android.</span>
-          <span lang="en">Configure upholstered furniture in 3D in the browser, then view the result in your own room with augmented reality on iOS and Android.</span>
-        </p>
-        <div class="tags"><span class="tag">Three.js</span><span class="tag">JavaScript</span><span class="tag">Web-AR</span><span class="tag">iOS · Android</span></div>
-      </div>
-    </article>
-
-    <article class="project">
-      <a class="shot" href="https://www.youtube.com/watch?v=6oKJh2fJWJs" rel="noopener">
-        <img src="Images/tablet-dekor-app.jpg" alt="Tablet Dekor 3D Furniture Configurator" loading="lazy" width="1280" height="720">
-        <span class="play">▶ Video (YouTube)</span>
-      </a>
-      <div>
-        <h3>Tablet Dekor</h3>
-        <p class="context">TD Yazılım · <span lang="de">Teamprojekt</span><span lang="en">team project</span> · Deutscher Exzellenz-Preis 2020</p>
-        <p>
-          <span lang="de">Möbelkonfigurations-App für Handel und Hersteller, ausgezeichnet mit dem Deutschen Exzellenz-Preis 2020. Im Einsatz unter anderem bei der Willi Schillig Polstermöbel GmbH und der Zorlu Holding.</span>
-          <span lang="en">Furniture configuration app for retailers and manufacturers, winner of the German Excellence Award 2020. Used by Willi Schillig Polstermöbel and Zorlu Holding, among others.</span>
-        </p>
-        <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">AR</span><span class="tag">Mobile · Desktop</span></div>
-      </div>
-    </article>
-
-    <article class="project">
-      <a class="shot" href="https://www.youtube.com/watch?v=-lhIsrg4_gM" rel="noopener">
-        <img src="Images/tablet-dekor-web.jpg" alt="Tablet Dekor 3D Web Configurator" loading="lazy" width="1280" height="720">
-        <span class="play">▶ Video (YouTube)</span>
-      </a>
-      <div>
-        <h3>Tablet Dekor Web</h3>
-        <p class="context">TD Yazılım · <span lang="de">Teamprojekt</span><span lang="en">team project</span></p>
-        <p>
-          <span lang="de">Der Konfigurator als Webanwendung: 3D-Möbelkonfiguration direkt im Browser, umgesetzt mit JavaScript und Three.js.</span>
-          <span lang="en">The configurator as a web application: 3D furniture configuration directly in the browser, built with JavaScript and Three.js.</span>
-        </p>
-        <div class="tags"><span class="tag">Three.js</span><span class="tag">JavaScript</span><span class="tag">WebGL</span></div>
-      </div>
-    </article>
-
     <!-- Self-hosted screen recording; the client name stays out on purpose. -->
     <article class="project">
       <div class="shot">
@@ -192,6 +146,48 @@ footer { padding: 40px 0 64px; font-size: 14px; color: var(--muted); display: fl
           <li>Real-time look with linear colour space, HDRI ambient light, contact shadows and ambient occlusion.</li>
         </ul>
         <div class="tags"><span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">REST API</span><span class="tag">Blender Cycles</span><span class="tag">Azure DevOps</span></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <a class="shot" href="https://www.youtube.com/watch?v=L7McHHe0Y5o" rel="noopener">
+        <img src="Images/schillig-web-configurator.jpg" alt="W.Schillig 3D Web Configurator" loading="lazy" width="1280" height="720">
+        <span class="play">▶ Video (YouTube)</span>
+      </a>
+      <div>
+        <h3><span lang="de">W.Schillig 3D-Web-Konfigurator mit AR</span><span lang="en">W.Schillig 3D web configurator with AR</span></h3>
+        <p class="context">TD Yazılım / Tablet Dekor · <span lang="de">Teamprojekt</span><span lang="en">team project</span></p>
+        <p>
+          <span lang="de">Polstermöbel im Browser in 3D konfigurieren und anschließend per Augmented Reality im eigenen Raum ansehen, auf iOS und Android.</span>
+          <span lang="en">Configure upholstered furniture in 3D in the browser, then view the result in your own room with augmented reality on iOS and Android.</span>
+        </p>
+        <div class="tags"><span class="tag">Three.js</span><span class="tag">JavaScript</span><span class="tag">Web-AR</span><span class="tag">iOS · Android</span></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="shots">
+        <a class="shot" href="https://www.youtube.com/watch?v=6oKJh2fJWJs" rel="noopener">
+          <img src="Images/tablet-dekor-app.jpg" alt="Tablet Dekor 3D Furniture Configurator" loading="lazy" width="1280" height="720">
+          <span class="play">▶ App</span>
+        </a>
+        <a class="shot" href="https://www.youtube.com/watch?v=-lhIsrg4_gM" rel="noopener">
+          <img src="Images/tablet-dekor-web.jpg" alt="Tablet Dekor 3D Web Configurator" loading="lazy" width="1280" height="720">
+          <span class="play">▶ Web</span>
+        </a>
+      </div>
+      <div>
+        <h3><span lang="de">Tablet Dekor: App und Web</span><span lang="en">Tablet Dekor: app and web</span></h3>
+        <p class="context">TD Yazılım · <span lang="de">Teamprojekt</span><span lang="en">team project</span> · Deutscher Exzellenz-Preis 2020</p>
+        <p>
+          <span lang="de">Möbelkonfigurations-App für Handel und Hersteller, ausgezeichnet mit dem Deutschen Exzellenz-Preis 2020. Im Einsatz unter anderem bei der Willi Schillig Polstermöbel GmbH und der Zorlu Holding.</span>
+          <span lang="en">Furniture configuration app for retailers and manufacturers, winner of the German Excellence Award 2020. Used by Willi Schillig Polstermöbel and Zorlu Holding, among others.</span>
+        </p>
+        <p>
+          <span lang="de">Tablet Dekor Web bringt den Konfigurator als Webanwendung direkt in den Browser, umgesetzt mit JavaScript und Three.js.</span>
+          <span lang="en">Tablet Dekor Web brings the configurator to the browser as a web application, built with JavaScript and Three.js.</span>
+        </p>
+        <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">AR</span><span class="tag">Three.js</span><span class="tag">JavaScript</span><span class="tag">WebGL</span><span class="tag">Mobile · Desktop · Web</span></div>
       </div>
     </article>
 
